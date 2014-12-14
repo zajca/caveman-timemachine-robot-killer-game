@@ -37,7 +37,8 @@ Game.prototype = {
     this.enemy = this.add.sprite(0, 0, 'tank', 'tank1');
     this.enemy.anchor.setTo(0.5, 0.5);
     this.enemy.animations.add('move', ['tank1', 'tank2', 'tank3', 'tank4', 'tank5', 'tank6'], 20, true);
-
+    this.physics.arcade.enable(this.enemy);
+    this.enemy.body.collideWorldBounds = true;
     this.game.physics.arcade.collide(this.enemy, this.layer);
 
     //this.enemy.body.collideWorldBounds = true;
@@ -92,7 +93,7 @@ Game.prototype = {
     this.yearText.setText("year:"+this.currentYear.id);
     this.pushYearLoop();
     this.swithYear();
-    this.enemiesInLevelText.setText("in this year left:" + _this.currentYear.aliveEnemiesCount());
+    this.enemiesInLevelText.setText("in this year left:" + this.currentYear.aliveEnemiesCount());
     document.addEventListener("enemy-destroy", (function(_this) {
       return function(e) {
         _this.enemiesInLevelText.setText("in this year left:" + _this.currentYear.aliveEnemiesCount());
