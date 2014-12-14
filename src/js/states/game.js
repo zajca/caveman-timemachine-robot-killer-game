@@ -8,6 +8,7 @@ var Game = function () {
   this.enemy = null;
   this.years = [];
   this.yearsAddSpeed = 10000;
+  this.yearsSwitchSpeed = 10000;
   this.fireRate = 200;
   this.nextFire = 0;
   this.currentYear = null;
@@ -175,7 +176,7 @@ Game.prototype = {
         _this.currentYear.activate();
         return _this.currentYear
       };
-    })(this), this.yearsAddSpeed);
+    })(this), this.yearsSwitchSpeed);
   },
 
   incClearedLevels: function(){
